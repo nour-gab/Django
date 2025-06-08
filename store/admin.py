@@ -40,7 +40,8 @@ class CustomerAdmin(admin.ModelAdmin):
     list_display = ['first_name', 'last_name', 'membership']
     list_editable = ['membership']
     list_per_page = 10
-    ordering = ['last_name', 'first_name']
+    list_select_related= ['user']
+    ordering = ['user__last_name', 'user__first_name']
     search_fields = ['last_name__istartswith', 'first_name__istartswith']
 
 @admin.register(models.Collection)
